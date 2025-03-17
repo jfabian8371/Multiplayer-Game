@@ -24,4 +24,5 @@ This is my multiplayer game I made for Advanced 3d Game: Here is rubrik and what
         Project will be uploaded to GitHub.
         Code should be clean enough to understand and well commented.
         Should be able to be downloaded, built and run.
-Here is my video: https://youtu.be/D0gXiP7ql70
+Here is my video(This is with game scenes and stuff): https://www.youtube.com/watch?v=s46SHM2xkJc 
+This is just purely testing the gameScene and stuff(I added the scenes after so I made another video with them): https://www.youtube.com/watch?v=XibHpHYDb3M
