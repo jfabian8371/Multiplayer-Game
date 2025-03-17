@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : NetworkBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerHealth : NetworkBehaviour
     [SerializeField] private AudioClip deathSound; // Death sound effect
     [SerializeField] private AudioSource audioSource; // AudioSource component
 
+    [SerializeField] private RectTransform healthBarFill;
+
     void Start()
     {
         if (IsServer)
@@ -24,7 +27,7 @@ public class PlayerHealth : NetworkBehaviour
             UpdateHealthUI();
         }
 
-        // 🔹 Ensure the AudioSource is not null
+        //  Ensure the AudioSource is not null
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -34,6 +37,12 @@ public class PlayerHealth : NetworkBehaviour
         {
             Debug.Log($"Health changed from {prev} to {current}");
             UpdateHealthUI();
+                if (healthBarFill != null)
+            {
+                    float healthRatio = Mathf.Clamp01(current / maxHealth);
+                    healthBarFill.localScale = new Vector3(healthRatio, 1, 1);
+                    Debug.Log($"Health bar scale updated to: {healthRatio}");
+            }
         };
     }
 
@@ -68,12 +77,12 @@ public class PlayerHealth : NetworkBehaviour
 
     private void Die()
     {
-        // 🔹 Play death sound for all clients
+        //  Play death sound for all clients
         PlayDeathSoundClientRpc();
 
         Debug.Log("Player has died.");
         StartCoroutine(DelayedDespawn());
-        // if (IsServer) // 🔹 Ensure only the server despawns the player
+        // if (IsServer) //  Ensure only the server despawns the player
         // {
         //     NetworkObject networkObject = GetComponent<NetworkObject>();
         //     if (networkObject != null)
@@ -86,9 +95,13 @@ public class PlayerHealth : NetworkBehaviour
         //         Debug.LogWarning("NetworkObject not found on player!");
         //     }
         // }
+        if (IsServer) // Only the server should change scenes
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
 
-    // 🔹 Play death sound for all clients
+    //  Play death sound for all clients
     [ClientRpc]
     private void PlayDeathSoundClientRpc()
     {

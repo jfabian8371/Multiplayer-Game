@@ -587,6 +587,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 181a395239de4ba42a2d1bce738968b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7547709640147714143}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 181a395239de4ba42a2d1bce738968b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4382605473373662706}
   m_SourcePrefab: {fileID: 100100000, guid: 181a395239de4ba42a2d1bce738968b0, type: 3}
 --- !u!1 &7161042359854328194 stripped
 GameObject:
@@ -718,6 +721,7 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 918f1b9f924d37c4ca3d2904c62b743f, type: 3}
   deathSound: {fileID: 8300000, guid: 596e82b49cac8d44dac53eededa40788, type: 3}
   audioSource: {fileID: -4680418873879546530}
+  healthBarFill: {fileID: 5202385243299100992}
 --- !u!114 &8290171825430993806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +773,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   HealthPoint:
     m_InternalValue: 0
+  healthBar: {fileID: 5202385243299100992}
 --- !u!114 &3260940693216214702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,6 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d634282a84f8b3479521185cd14455a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   HealthUI: {fileID: 5202385243299100992}
 --- !u!82 &-4680418873879546530
 AudioSource:
@@ -902,6 +908,20 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   audioSource: {fileID: -4680418873879546530}
   spawnSound: {fileID: 8300000, guid: f3d230a4ad6067147afc90e75c54ba18, type: 3}
+--- !u!114 &4382605473373662706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161042359854328194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48629e61f513f6d4ead3804cc1cde908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  Health2: {fileID: 5202385243299100992}
 --- !u!4 &7506078607397368632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 181a395239de4ba42a2d1bce738968b0, type: 3}
